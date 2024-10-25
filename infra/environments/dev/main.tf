@@ -11,9 +11,15 @@ module "api_enablement" {
   project_id = var.project_id
   # Optionally override the list of APIs
   api_list   = [
-    "cloudbuild.googleapis.com",
-    "artifactregistry.googleapis.com",
-    "iam.googleapis.com",
+    "cloudbuild.googleapis.com",       # Cloud Build API
+    "artifactregistry.googleapis.com", # Artifact Registry API
+    "iam.googleapis.com",              # IAM API
+    "compute.googleapis.com",          # Compute Engine API
+    "run.googleapis.com",              # Cloud Run API
+    "cloudfunctions.googleapis.com",   # Cloud Functions API
+    "container.googleapis.com",        # Kubernetes Engine API
+    "appengine.googleapis.com",        # App Engine Admin API
+    "cloudresourcemanager.googleapis.com", # Resource Manager API
     # Add or remove APIs as needed
   ]
 }
