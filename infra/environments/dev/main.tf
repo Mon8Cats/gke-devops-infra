@@ -36,7 +36,7 @@ module "network" {
 
 # (3) firewall rules
 module "firewall_rules" {
-  source       = "../../modules/s_03_firewall"
-  vpc_name     = module.network.vpc_name
+  source       = "../../modules/s03_firewall"
+  vpc_id     = module.network.vpc_name.Id
   firewall_rules = var.firewall_rules
 }

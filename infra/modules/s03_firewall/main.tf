@@ -2,8 +2,8 @@
 
 resource "google_compute_firewall" "custom_rules" {
   for_each    = { for rule in var.firewall_rules : rule.name => rule }
-  name        = "${var.vpc_name}-${each.value.name}"
-  network     = var.vpc_name
+  name        = "${var.vpc_id}-${each.value.name}"
+  network     = var.vpc_id
   direction   = "INGRESS"
   priority    = each.value.priority != null ? each.value.priority : 1000  # Default priority 1000
   description = each.value.description != null ? each.value.description : "Custom firewall rule"

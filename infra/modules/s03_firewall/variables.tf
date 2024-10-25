@@ -1,7 +1,7 @@
 # modules/firewall/variables.tf
 
-variable "vpc_name" {
-  description = "The name of the VPC network to apply firewall rules to"
+variable "vpc_id" {
+  description = "The id of the VPC network to apply firewall rules to"
   type        = string
 }
 
