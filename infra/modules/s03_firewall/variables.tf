@@ -5,6 +5,12 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "vpc_name" {
+  description = "The name of the VPC network to use as a prefix in firewall rule names"
+  type        = string
+}
+
+
 variable "firewall_rules" {
   description = "List of firewall rule configurations"
   type = list(object({
