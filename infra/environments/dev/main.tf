@@ -8,7 +8,7 @@ provider "google" {
 
 # (1) enable apis
 module "api_enablement" {
-  source    = "../../modules/api_enablement"
+  source    = "../../modules/s01_api_enablement"
   project_id = var.project_id
   # Optionally override the list of APIs
   api_list   = [
@@ -27,16 +27,16 @@ module "api_enablement" {
 
 # (2) vpc
 module "network" {
-  source         = "../../modules/network"
+  source         = "../../modules/s02_network"
   vpc_name       = "dev-vpc"
-  region         = var.region
+  #region         = var.region
   subnet_configs = var.subnet_configs
   #firewall_rules = var.firewall_rules
 }
 
 # (3) firewall rules
 module "firewall_rules" {
-  source       = "../../modules/firewall"
+  source       = "../../modules/s_03_firewall"
   vpc_name     = module.network.vpc_name
   firewall_rules = var.firewall_rules
 }

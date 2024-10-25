@@ -9,10 +9,12 @@ variable "region" {
 }
 
 variable "subnet_configs" {
-  description = "Configurations for each subnet"
+  description = "List of subnet configurations"
   type = list(object({
-    name = string
-    cidr = string
+    name        = string
+    cidr        = string
+    region      = string
+    description = optional(string, "Custom subnet")
   }))
 }
 
