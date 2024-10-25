@@ -5,7 +5,3 @@ resource "google_project_service" "enable_apis" {
   project  = var.project_id
   service  = each.key
 }
-
-output "enabled_services" {
-  value = [for service in google_project_service.enable_apis : service.service]
-}
