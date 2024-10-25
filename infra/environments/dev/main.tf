@@ -6,6 +6,7 @@ provider "google" {
 }
 
 
+# (1) enable apis
 module "api_enablement" {
   source    = "../../modules/api_enablement"
   project_id = var.project_id
@@ -24,12 +25,18 @@ module "api_enablement" {
   ]
 }
 
-/*
+# (2) vpc
 module "network" {
   source         = "../../modules/network"
   vpc_name       = "dev-vpc"
   region         = var.region
   subnet_configs = var.subnet_configs
+  #firewall_rules = var.firewall_rules
+}
+
+# (3) firewall rules
+module "firewall_rules" {
+  source       = "../../modules/firewall"
+  vpc_name     = module.network.vpc_name
   firewall_rules = var.firewall_rules
 }
-*/
