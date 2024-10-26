@@ -1,6 +1,7 @@
 # environments/dev/terraform.tfvars
 
 project_id = "mon-infra-439715"
+project_number = "324738742810"
 region     = "us-central1"
 
 subnet_configs = [

@@ -60,6 +60,7 @@ module "workload_identity" {
 module "cicd_service_account" {
   source                     = "../../modules/s05_cicd_service_account"
   project_id                 = var.project_id
+  project_number            = var.project_number 
   service_account_id         = "cicd-service-account"
   roles                      = [
     "roles/cloudbuild.builds.builder",

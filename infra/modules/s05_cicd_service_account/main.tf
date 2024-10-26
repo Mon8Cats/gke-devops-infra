@@ -18,5 +18,6 @@ resource "google_project_iam_member" "cicd_roles" {
 resource "google_service_account_iam_member" "workload_identity_binding" {
   service_account_id = google_service_account.cicd.name
   role               = "roles/iam.workloadIdentityUser"
-  member             = "principalSet://iam.googleapis.com/${var.workload_identity_pool_id}/attribute.repository/${var.github_repository}"
+  member             = "principalSet://iam.googleapis.com/projects/${var.project_number}/locations/global/workloadIdentityPools/${var.pool_id}/attribute.repository/${var.github_repository}"
 }
+
