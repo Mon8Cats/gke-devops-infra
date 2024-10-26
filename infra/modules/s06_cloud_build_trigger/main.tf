@@ -12,7 +12,7 @@ resource "google_cloudbuild_trigger" "github_trigger" {
     push {
       branch = var.branch_regex
     }
-    connection = var.connection_id
+    #connection = var.connection_id
   }
 
   service_account = var.service_account_email  # Specify the service account email here

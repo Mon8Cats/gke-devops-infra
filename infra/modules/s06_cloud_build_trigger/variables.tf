@@ -36,7 +36,9 @@ variable "service_account_email" {
   type        = string
 }
 
+/*
 variable "connection_id" {
   description = "GitHub repository name"
   type        = string
 }
+*/

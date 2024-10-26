@@ -79,4 +79,6 @@ module "cloud_build_trigger" {
   github_owner      = var.github_owner
   github_repo       = var.github_repository
   branch_regex      = "^main$"  # Customize to trigger on specific branches
+  service_account_email = module.cicd_service_account.service_account_email
+  #connection_id = 1
 }
