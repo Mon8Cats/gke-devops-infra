@@ -72,3 +72,14 @@ module "cicd_service_account" {
   workload_identity_pool_id  = module.workload_identity.workload_identity_pool_id
   github_repository          = var.github_repository
 }
+
+# (6) cloud build trigger 
+module "cloud_build_trigger" {
+  source            = "../../modules/s06_cloud_build_trigger"
+  trigger_name      = "dev-build-trigger"
+  description       = "Trigger to build on GitHub pushes or merges for dev environment"
+  build_config_file = "cloudbuild.yaml"
+  github_owner      = var.github_owner
+  github_repo       = var.github_repository
+  branch_regex      = "^main$"  # Customize to trigger on specific branches
+}
