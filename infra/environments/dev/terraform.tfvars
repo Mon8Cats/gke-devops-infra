@@ -33,4 +33,5 @@ firewall_rules = [
 ]
 
 github_repository      = "Mon8Cats/gke-devops-infra"
+github_owner = "Mon8Cats"
 #github_account         = "Mon8Cats"  # Optional if needed
