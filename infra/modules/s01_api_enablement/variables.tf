@@ -18,5 +18,6 @@ variable "api_list" {
     "container.googleapis.com",        # Kubernetes Engine API
     "appengine.googleapis.com",        # App Engine Admin API
     "cloudresourcemanager.googleapis.com", # Resource Manager API
+    "iamcredentials.googleapis.com"
   ]
 }
