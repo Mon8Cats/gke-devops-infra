@@ -69,7 +69,7 @@ module "cicd_service_account" {
   github_repository          = var.github_repository
 }
 
-/*
+
 # (6) cloud build trigger 
 module "cloud_build_trigger" {
   source            = "../../modules/s06_cloud_build_trigger"
@@ -80,4 +80,3 @@ module "cloud_build_trigger" {
   github_repo       = var.github_repository
   branch_regex      = "^main$"  # Customize to trigger on specific branches
 }
-*/
