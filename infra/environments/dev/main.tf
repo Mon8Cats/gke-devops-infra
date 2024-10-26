@@ -41,3 +41,12 @@ module "firewall_rules" {
   vpc_name  = module.network.vpc_name
   firewall_rules = var.firewall_rules
 }
+
+# (4) workload identity
+module "workload_identity" {
+  source                 = "../../modules/s04_workload_identity"
+  pool_id                = "github-pool"
+  provider_id            = "github-provider"
+  pool_display_name      = "GitHub Workload Identity Pool"
+  provider_display_name  = "GitHub Identity Provider"
+}
