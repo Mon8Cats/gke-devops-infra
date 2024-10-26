@@ -30,3 +30,6 @@ firewall_rules = [
     ports    = ["80"]
   }
 ]
+
+github_repository      = "Mon8Cats/gke-devops-infra"
+#github_account         = "Mon8Cats"  # Optional if needed

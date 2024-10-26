@@ -51,6 +51,23 @@ module "workload_identity" {
   provider_display_name  = "GitHub Identity Provider"
 
   # Pass your GitHub repository and account
-  github_repository      = "Mon8Cats/gke-devops-infra"
-  github_account         = "Mon8Cats"  # Optional if needed
+  github_repository      = var.github_repository
+  #github_account         = "Mon8Cats"  # Optional if needed
+}
+
+
+# (5) cicd service account
+module "cicd_service_account" {
+  source                     = "../../modules/s05_cicd_service_account"
+  project_id                 = var.project_id
+  service_account_id         = "cicd-service-account"
+  roles                      = [
+    "roles/cloudbuild.builds.builder",
+    "roles/artifactregistry.reader",
+    "roles/storage.admin",
+    "roles/run.admin",
+    "roles/container.developer"
+  ]
+  workload_identity_pool_id  = module.workload_identity.workload_identity_pool_id
+  github_repository          = var.github_repository
 }

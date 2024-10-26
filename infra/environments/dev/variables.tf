@@ -27,3 +27,9 @@ variable "firewall_rules" {
     ports    = list(string)
   }))
 }
+
+
+variable "github_repository" {
+  description = "The github reporitory"
+  type        = string
+}
