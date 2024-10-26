@@ -30,3 +30,13 @@ variable "branch_regex" {
   description = "Regex pattern for branches to trigger the build (e.g., '^main$', '.*' for all branches)"
   type        = string
 }
+
+variable "service_account_email" {
+  description = "GitHub repository name"
+  type        = string
+}
+
+variable "connection_id" {
+  description = "GitHub repository name"
+  type        = string
+}

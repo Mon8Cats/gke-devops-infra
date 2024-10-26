@@ -43,3 +43,8 @@ variable "github_owner" {
   description = "The github owner"
   type        = string
 }
+
+variable "roles" {
+  description = "List of roles to assign to the service account"
+  type        = list(string)
+}

@@ -5,6 +5,8 @@ provider "google" {
   region  = var.region
 }
 
+# (0) manually do github repo connection in cloud build trigger
+
 
 # (1) enable apis
 module "api_enablement" {
@@ -62,17 +64,12 @@ module "cicd_service_account" {
   project_id                 = var.project_id
   project_number            = var.project_number 
   service_account_id         = "cicd-service-account"
-  roles                      = [
-    "roles/cloudbuild.builds.builder",
-    "roles/artifactregistry.reader",
-    "roles/storage.admin",
-    "roles/run.admin",
-    "roles/container.developer"
-  ]
+  roles                      = var.roles
   workload_identity_pool_id  = module.workload_identity.workload_identity_pool_id
   github_repository          = var.github_repository
 }
 
+/*
 # (6) cloud build trigger 
 module "cloud_build_trigger" {
   source            = "../../modules/s06_cloud_build_trigger"
@@ -83,3 +80,4 @@ module "cloud_build_trigger" {
   github_repo       = var.github_repository
   branch_regex      = "^main$"  # Customize to trigger on specific branches
 }
+*/

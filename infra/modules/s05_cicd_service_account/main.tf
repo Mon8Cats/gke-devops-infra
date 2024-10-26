@@ -14,10 +14,16 @@ resource "google_project_iam_member" "cicd_roles" {
   member   = "serviceAccount:${google_service_account.cicd.email}"
 }
 
+# Allow Cloud Build service account to impersonate the CI/CD service account
+resource "google_service_account_iam_member" "cloud_build_impersonate" {
+  service_account_id = google_service_account.cicd.name
+  role               = "roles/iam.serviceAccountUser"
+  member             = "serviceAccount:service-${var.project_number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
+}
+
 # Bind service account to use workload identity pool
 resource "google_service_account_iam_member" "workload_identity_binding" {
   service_account_id = google_service_account.cicd.name
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/projects/${var.project_number}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.repository/${var.github_repository}"
 }
-
