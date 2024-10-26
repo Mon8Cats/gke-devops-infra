@@ -28,3 +28,10 @@ variable "provider_display_name" {
   type        = string
   default     = "GitHub Identity Provider"
 }
+
+# modules/workload_identity/variables.tf
+
+variable "github_repository" {
+  description = "The GitHub repository to link with Workload Identity Pool (e.g., 'your-org/your-repo')"
+  type        = string
+}

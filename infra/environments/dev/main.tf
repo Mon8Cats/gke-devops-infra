@@ -49,4 +49,8 @@ module "workload_identity" {
   provider_id            = "github-provider"
   pool_display_name      = "GitHub Workload Identity Pool"
   provider_display_name  = "GitHub Identity Provider"
+
+  # Pass your GitHub repository and account
+  github_repository      = "Mon8Cats/gke-devops-infra"
+  github_account         = "Mon8Cats"  # Optional if needed
 }
